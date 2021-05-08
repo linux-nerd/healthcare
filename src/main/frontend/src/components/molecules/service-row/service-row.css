@@ -1,0 +1,40 @@
+.services-row {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border: 1px solid var(--secondary-border-color);
+  border-radius: 5px;
+  padding: 10px;
+  transition: box-shadow 0.2s ease-in-out;
+  margin-bottom: 5px;
+}
+
+.services-row:hover {
+  box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+}
+
+.services-column__body {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.services-column__body__name{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.services-column__body__url, .service-row__input {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.services-column__action {
+  display: flex;
+  margin-left: auto;
+}
+
+.services-column__action button {
+  margin-left: 5px;
+}
+

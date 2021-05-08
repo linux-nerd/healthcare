@@ -28,6 +28,7 @@ public class ServiceRegistryDBImp implements ServiceRegistry {
     private final String SQL_QUERY_ADD_SERVICE = "INSERT INTO Services VALUES (?, ?, ?, ?);";
     private final String SQL_QUERY_UPDATE_STATUS = "UPDATE Services SET status = ? WHERE name = ?;";
     private final String SQL_QUERY_DELETE_STATUS = "DELETE FROM Services WHERE name = ?;";
+    private final String SQL_QUERY_UPDATE_SERVICE = "UPDATE Services SET url = ?, status = ? WHERE name = ?;";
 
     /**
      * Constructor.
@@ -130,6 +131,26 @@ public class ServiceRegistryDBImp implements ServiceRegistry {
                 future.complete(Boolean.TRUE);
             } else {
                 System.out.println("Service could not be removed. name: " + serviceName + "  cause:" +res.cause());
+                future.fail(res.cause());
+            }
+        });
+        return future;
+    }
+
+    @Override
+    public Future<Boolean> updateService(String serviceName,
+        String serviceUrl) throws IllegalArgumentException{
+        validateServiceName(serviceName);
+        validateServiceUrl(serviceUrl);
+        final Future future = Future.future();
+        final JsonArray params = new JsonArray()
+            .add(serviceUrl)
+            .add(ServiceStatus.UNKNOWN)
+            .add(serviceName);
+        dbConnector.query(SQL_QUERY_UPDATE_SERVICE, params).setHandler(res -> {
+            if (res.succeeded()) {
+                future.complete(Boolean.TRUE);
+            } else {
                 future.fail(res.cause());
             }
         });

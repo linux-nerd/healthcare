@@ -1,0 +1,17 @@
+input {
+  font-size: 18px;
+  background-color: var(--secondary-bg-color);
+  padding: 10px 0px;
+  border-radius: 0px;
+  border-style: none none solid;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--secondary-border-color);
+  appearance: textfield;
+  outline: none;
+}
+
+input:focus {
+  border-style: none none solid;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--primary-border-color); 
+}

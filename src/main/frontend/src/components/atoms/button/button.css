@@ -1,0 +1,25 @@
+.btn {
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn--primary {
+    color: var(--text-light-color);
+    background-color: var(--primary-color);
+}
+
+.btn--secondary {
+   color: var(--text-light-color);
+   background-color: var(--secondary-color); 
+}
+
+.btn--danger {
+   color: var(--text-light-color);
+   background-color: var(--destructive-color); 
+}
+
+.btn--default {
+    height: 48px;
+}

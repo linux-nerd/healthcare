@@ -42,4 +42,6 @@ public interface ServiceRegistry {
      * @throws IllegalArgumentException if the service does not exists in the registry.
      */
     Future<Boolean> removeService(final String serviceName) throws IllegalArgumentException;
+
+    Future<Boolean> updateService(final String serviceName, final String serviceUrl) throws IllegalArgumentException;
 }

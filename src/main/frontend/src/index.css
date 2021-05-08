@@ -1,0 +1,21 @@
+:root {
+  --secondary-bg-color: rgb(255, 255, 255);
+
+  --primary-color: rgb(10, 126, 133);
+  --secondary-color: rgb(79, 118, 226);
+  --destructive-color: rgb(226, 79, 79);
+
+  --text-light-color: rgb(255, 255, 255);
+
+  --primary-border-color: rgb(11, 72, 133);
+  --secondary-border-color: rgb(206, 208, 210);
+
+  --primary-font:'Montserrat', sans-serif
+}
+
+body {
+  margin: 0;
+  font-family: var(--primary-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

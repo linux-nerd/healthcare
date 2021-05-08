@@ -87,4 +87,39 @@ public class TestMainVerticle {
                     testContext.completeNow();
                 }));
     }
+
+    @Test
+    @DisplayName("Start a web server on localhost responding to PUT /service on port 8080")
+    @Timeout(value = 10, timeUnit = TimeUnit.SECONDS)
+    void testPutService(Vertx vertx, VertxTestContext testContext) throws MalformedURLException {
+        final Service service = new Service();
+        final String name = "test-" + UUID.randomUUID().toString();
+        service.setName(name);
+        service.setUrl(new URL("http://test.com"));
+        WebClient.create(vertx)
+            .post(8080, "::1", "/service")
+            .sendJson(service, response -> testContext.verify(() -> {
+                assertEquals(204, response.result().statusCode());
+                testContext.completeNow();}));
+
+        WebClient.create(vertx)
+            .get(8080, "::1", "/service")
+            .send(response -> testContext.verify(() -> {
+                assertEquals(200, response.result().statusCode());
+                testContext.completeNow();
+            }));
+
+        service.setUrl(new URL("http://test2.com"));
+        WebClient.create(vertx)
+            .put(8080, "::1", "/service")
+            .sendJson(service, response -> testContext.verify(() -> {
+                assertEquals(204, response.result().statusCode());
+                testContext.completeNow();}));
+
+        WebClient.create(vertx)
+            .delete(8080, "::1", "/service")
+            .sendJson(service, response -> testContext.verify(() -> {
+                assertEquals(204, response.result().statusCode());
+                testContext.completeNow();}));
+    }
 }

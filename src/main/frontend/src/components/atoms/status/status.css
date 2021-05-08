@@ -1,0 +1,40 @@
+.status__container {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status__container div {
+  display: flex;
+  align-self: center;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status__container.fail {
+  border: 1px solid var(--destructive-color);
+}
+
+.status__container.fail div {
+  background: var(--destructive-color);
+}
+
+.status__container.unknown {
+  border: 1px solid var(--secondary-border-color);
+}
+
+.status__container.unknown div {
+  background: var(--secondary-border-color);
+}
+
+.status__container.ok {
+  border: 1px solid var(--primary-color);
+}
+
+.status__container.ok div {
+  background: var(--primary-color);
+}

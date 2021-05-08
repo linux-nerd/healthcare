@@ -1,0 +1,35 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media(min-width: 450px) {
+  .App {
+    background-color: rgb(240, 245, 248);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(10, 22, 31);
+  }
+
+  .app__container {
+    border-radius: 12px;
+    box-shadow: rgb(21 61 87 / 8%) 0px 12px 19px, rgb(21 61 87 / 10%) 0px 1px 6px;
+    width: 450px;
+  }
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+.app__container {
+  margin: 0 auto;
+  display: flex;
+  padding: 20px;
+  background: #fff;
+}

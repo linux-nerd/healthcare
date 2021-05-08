@@ -60,6 +60,20 @@ public class ServiceRegistryInMemoryImp implements ServiceRegistry {
     return Future.succeededFuture(true);
   }
 
+  @Override
+  public Future<Boolean> updateService(String serviceName, String serviceUrl) throws IllegalArgumentException {
+    validateServiceName(serviceName);
+    final URL url = validateServiceUrl(serviceUrl);
+
+    final Service service = new Service();
+    service.setName(serviceName);
+    service.setUrl(url);
+    service.setStatus(ServiceStatus.UNKNOWN);
+    service.setAddTime(Instant.now());
+    this.registry.put(serviceName, service);
+    return Future.succeededFuture(true);
+  }
+
   private void validateServiceName(final String serviceName) throws IllegalArgumentException {
     if (serviceName == null || serviceName.isEmpty()) {
       throw new IllegalArgumentException("Invalid Service name.");
