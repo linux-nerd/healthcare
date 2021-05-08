@@ -48,3 +48,6 @@ You can also run gradle directly from the command line:
 ```
 ./gradlew clean run
 ```
+
+# Running FE
+Navigate to `src/main/frontend` and fire `yarn` and `yarn start`  from the terminal
